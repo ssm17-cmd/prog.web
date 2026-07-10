@@ -1,0 +1,41 @@
+let bancoPalavras = [
+  "javascript", "programacao", "desenvolvedor", "computador", "logica",
+  "algoritmo", "variavel", "funcao", "objeto", "codigo",
+  "navegador", "internet", "sistema", "banco", "estrutura"
+];
+
+let numeroAleatorio = Math.random() * bancoPalavras.length;
+let numeroInteiro = Math.floor(numeroAleatorio);
+let palavraSecreta = bancoPalavras[numeroInteiro];
+
+let letrasPalavra = palavraSecreta.split(""); 
+let letrasDescobertas = [];
+
+for (let i = 0; i < letrasPalavra.length; i++) {
+  letrasDescobertas.push("_");
+}
+
+let tentativas = 6;
+
+while (tentativas > 0 && letrasDescobertas.includes("_")) {
+  
+  let estadoAtual = letrasDescobertas.join(" ");
+  let palpite = prompt("Palavra: " + estadoAtual + "\nTentativas: " + tentativas + "\nDigite uma letra:");
+  let letra = palpite.toLowerCase();
+
+  if (letrasPalavra.includes(letra)) {
+    for (let i = 0; i < letrasPalavra.length; i++) {
+      if (letrasPalavra[i] == letra) {
+        letrasDescobertas[i] = letra;
+      }
+    }
+  } else {
+    tentativas = tentativas - 1;
+  }
+}
+
+if (!letrasDescobertas.includes("_")) {
+  alert("Vitória! A palavra era: " + palavraSecreta);
+} else {
+  alert("Derrota! A palavra era: " + palavraSecreta);
+}
