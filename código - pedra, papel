@@ -1,0 +1,36 @@
+let escolhaUsuario = prompt("Escolha: pedra, papel ou tesoura:");
+escolhaUsuario = escolhaUsuario.toLowerCase();
+
+if (escolhaUsuario == "pedra" || escolhaUsuario == "papel" || escolhaUsuario == "tesoura") {
+  
+  let numeroAleatorio = Math.random() * 3;
+  let numeroInteiro = Math.floor(numeroAleatorio);
+  let escolhaComputador;
+
+  if (numeroInteiro == 0) {
+    escolhaComputador = "pedra";
+  } else if (numeroInteiro == 1) {
+    escolhaComputador = "papel";
+  } else {
+    escolhaComputador = "tesoura";
+  }
+
+  alert("O computador escolheu: " + escolhaComputador);
+
+  if (escolhaUsuario == escolhaComputador) {
+    alert("Resultado: Empate!");
+  } else {
+    if (
+      (escolhaUsuario == "pedra" && escolhaComputador == "tesoura") ||
+      (escolhaUsuario == "papel" && escolhaComputador == "pedra") ||
+      (escolhaUsuario == "tesoura" && escolhaComputador == "papel")
+    ) {
+      alert("Resultado: Vitória!");
+    } else {
+      alert("Resultado: Derrota!");
+    }
+  }
+
+} else {
+  alert("Opção inválida!");
+}
