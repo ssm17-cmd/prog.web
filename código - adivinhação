@@ -1,17 +1,17 @@
 let numeroAleatorio = Math.random() * 50;
 let numeroInteiro = Math.floor(numeroAleatorio);
 let numeroSecreto = numeroInteiro + 1;
-let sugestao;
+let palpite;
 
 do {
-  sugestao = prompt("Digite um número de 1 a 50:");
-  sugestao = parseInt(sugestao);
+  palpite = prompt("Digite um número de 1 a 50:");
+  palpite = parseInt(palpite);
 
   if (palpite < numeroSecreto) {
     alert("maior");
-  } else if (sugestao > numeroSecreto) {
+  } else if (palpite > numeroSecreto) {
     alert("menor");
   } else {
     alert("Parabéns! Você acertou.");
   }
-} while (sugestao != numeroSecreto);
+} while (palpite != numeroSecreto);
